@@ -1,0 +1,15 @@
+.title{
+    font-size: 28px;
+    margin: 5%;
+    color: orange;
+}
+
+.trackList{
+    display: grid;
+    list-style-type: none;
+}
+
+li{
+    display: flex;
+
+}
