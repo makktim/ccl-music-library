@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './MusicLibrary.css';
 import {Link} from "react-router-dom";
 import LibrarySong from "./LibrarySong";
+import voice from "../images/voice1.jpg";
 
 class MusicLibrary extends Component {
     constructor(props) {
@@ -21,7 +22,8 @@ class MusicLibrary extends Component {
         return (
             <div>
                 <h1>My Music List</h1>
-                <Link className="btn grey" to="/songs/add">Add new music</Link>
+                <img className="voice" src={voice} alt=""/>
+                <Link className="add-btn" to="/songs/add">+</Link>
                 {this.state.songs.map(function (item, index) {
                     return (
                         <LibrarySong key={index} item={item} index={index}/>

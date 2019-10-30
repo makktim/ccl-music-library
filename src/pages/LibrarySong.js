@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {MusicList} from "./MusicLibraryStyle";
+import './MusicLibrary.css';
 import axios from "axios";
+import music from "../images/music2.jpg"
+import trash from "../images/trash.png";
 
 
 class LibrarySong extends Component {
@@ -24,16 +26,18 @@ class LibrarySong extends Component {
 
     render() {
         return(
-            <div key={ this.state.index}>
-                <MusicList>
-                    <li>
-                        <h2 className="title"> { this.state.item.title}</h2>
-                        <h3 className="album">album: { this.state.item.album}</h3>
-                        <p className="performer">performer:{ this.state.item.performer}</p>
-                        <p className="length">length:{ this.state.item.length}</p>
-                    </li>
-                    <button onClick={this.onDelete.bind(this)}>Delete</button>
-                </MusicList>
+            <div className="music-box" key={ this.state.index}>
+                <div className="music-info">
+                    <div className="music-img">
+                        <img src={music} alt=""/>
+                    </div>
+                    <div className="music-name">
+                        <h3>{ this.state.item.title}</h3>
+                        <p> { this.state.item.performer} { this.state.item.album}</p>
+                        <p className="music-time"> time: { this.state.item.length}</p>
+                    </div>
+                    <img className="trash" onClick={this.onDelete.bind(this)} src={trash} alt=""/>
+                </div>
             </div>
         )
     }
