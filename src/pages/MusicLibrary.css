@@ -1,6 +1,11 @@
+.body{
+    margin: 0;
+}
+
 
 .music-box{
     margin-top: 12px;
+    width: 100%;
     font-weight: normal;
     color: orange;
     cursor: pointer;
@@ -10,7 +15,7 @@
 .music-info{
     width: 100%;
     background-color: gray;
-    padding: 1%;
+    padding: 1% 0 1% 0;
     height: 80px;
     display: flex;
 }

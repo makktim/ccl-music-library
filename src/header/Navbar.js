@@ -5,8 +5,8 @@ const NavBar = () => {
     return (
         <div>
             <ul>
-                <li><a className="active" href="#home">Music Library</a></li>
-                <li><a href="#about">About</a></li>
+                <li><a className="active" href="#library">Music Library</a></li>
+                <li><a href="#top">Top Songs</a></li>
             </ul>
         </div>
 

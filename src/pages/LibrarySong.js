@@ -18,8 +18,9 @@ class LibrarySong extends Component {
     onDelete = () =>{
         let song = this.state.item.title;
         axios.delete(`http://localhost:8080/songs/${song}`, song)
-            .then(song => {
-                console.log(song);
+            .then(songs => {
+                console.log(songs);
+                window.location.reload();
                 this.props.history.push('/');
             }).catch(err => console.log(err));
     };
@@ -36,7 +37,7 @@ class LibrarySong extends Component {
                         <p> { this.state.item.performer} { this.state.item.album}</p>
                         <p className="music-time"> time: { this.state.item.length}</p>
                     </div>
-                    <img className="trash" onClick={this.onDelete.bind(this)} src={trash} alt=""/>
+                    <img className="trash" onClick={this.onDelete} src={trash} alt=""/>
                 </div>
             </div>
         )

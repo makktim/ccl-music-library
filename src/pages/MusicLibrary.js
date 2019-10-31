@@ -20,7 +20,7 @@ class MusicLibrary extends Component {
 
     render() {
         return (
-            <div>
+            <div className="body" >
                 <h1>My Music List</h1>
                 <img className="voice" src={voice} alt=""/>
                 <Link className="add-btn" to="/songs/add">+</Link>
