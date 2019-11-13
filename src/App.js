@@ -1,29 +1,18 @@
 import React from 'react';
-import MusicLibrary from "./pages/MusicLibrary";
-import MusicList from "./pages/MusicList";
-import {BrowserRouter, Route} from 'react-router-dom';
-import NavBar from "./header/Navbar";
-import AddSong from "./pages/AddSong";
-import MusicContextProvider from "./context/MusicContext";
+import SongContextProvider from './context/SongContext';
+import NavBar from './components/Navbar';
+import MusicList from './components/MusicList';
+import NewMusicForm from './components/MusicForm';
 
 function App() {
   return (
     <div className="App">
-        {/*<MusicContextProvider>*/}
-        {/*    <NavBar/>*/}
-        {/*</MusicContextProvider>*/}
-
-
-        <BrowserRouter>
+      <SongContextProvider>
         <NavBar/>
-        <Route exact path='/' component={MusicList} />
-        <Route path='/list' component={MusicLibrary} />
-        <Route path='/songs/add' component={AddSong} />
-        {/*<Route exact path='/songs/edit/:id' component={} />*/}
-        {/*<Route exact path='/songs/:id' component={} />*/}
-        </BrowserRouter>
+          <NewMusicForm/>
+        <MusicList/>
+      </SongContextProvider>
     </div>
-
   );
 }
 
