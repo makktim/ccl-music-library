@@ -25,6 +25,17 @@ code {
 
 }
 
+a{
+  color: white;
+  font-size: 21px;
+  text-decoration: none;
+}
+
+a:hover{
+  opacity: 0.7;
+}
+
+
 .navbar{
   padding: 10px 20px;
   text-align: center;
@@ -90,6 +101,8 @@ code {
 
 form{
   padding: 20px;
+  margin: 5%;
+  box-shadow: 0 0 12px 3px black;
 }
 input[type='text']{
   width: 100%;
@@ -102,7 +115,9 @@ input[type='text']{
 }
 input[type='submit']{
   margin: 10px auto;
-  background: #eee;
+  background: #6d3d6d;
+  color: white;
+  box-shadow: 0 0 14px 0px black;
   border: 0;
   padding: 6px 20px;
   display: block;

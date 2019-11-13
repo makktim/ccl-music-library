@@ -6,6 +6,7 @@ const NavBar = () => {
     return (
         <div className='navbar'>
             <h1>My music list</h1>
+            <a href="/">HomePage</a>
             <p>Currently you have {songs.length} music!</p>
         </div>
     );
