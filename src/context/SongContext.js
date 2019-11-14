@@ -18,21 +18,13 @@ const BookContextProvider = (props) => {
     setSongs([...songs, {title,album,performer,length}]);
   };
 
-  const removeSong = (song) =>{
-    console.log(song);
-    axios.post('http://localhost:8080/songs/delete', song
-    ).then(song => {
-      console.log(song);
-    }).catch(err => console.log(err));
-  };
-
-  const deleteSong = (title,performer) => {
-    setSongs(songs.filter(songs => songs.title !== title ));
-    const song = {
-      title: title,
-      performer: performer,
-    };
-    removeSong(song)
+  const deleteSong = (id) => {
+    console.log(id);
+    setSongs(songs.filter(songs => songs.id !== id ));
+      axios.delete(`http://localhost:8080/songs/${id}`, id)
+          .then(songs => {
+            console.log(songs);
+          }).catch(err => console.log(err));
   };
 
 

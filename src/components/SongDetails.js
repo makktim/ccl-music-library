@@ -16,7 +16,7 @@ const SongDetails = ({songs}) => {
                     <p> {songs.performer} {songs.album}</p>
                     <p className="music-time"> time: {songs.length}</p>
                 </div>
-                <img className="trash" onClick={() => deleteSong(songs.title, songs.performer)} src={trash} alt=""/>
+                <img className="trash" onClick={() => deleteSong(songs.id)} src={trash} alt=""/>
             </div>
         </li>
 
