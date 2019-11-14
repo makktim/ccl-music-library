@@ -4,7 +4,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #553055;
+  background: #555;
   margin: auto;
   width: 50%;
   padding: 10px;
@@ -17,16 +17,16 @@ code {
 
 
 .App{
-  background: #4c2a4c;
+  background: #424242;
   margin: 20px;
   width: 90%;
   max-width: 700px;
-  color: #eee;
+  color: orange;
 
 }
 
 a{
-  color: white;
+  color: orange;
   font-size: 21px;
   text-decoration: none;
 }
@@ -39,7 +39,7 @@ a:hover{
 .navbar{
   padding: 10px 20px;
   text-align: center;
-  background: #6d3d6d;
+  background: #333;
 }
 
 .navbar h1{
@@ -54,7 +54,7 @@ a:hover{
   list-style-type: none;
 }
 .book-list li{
-  background: #6d3d6d;
+  background:#333;
   border-radius: 4px;
   padding: 10px;
   cursor: pointer;
@@ -65,12 +65,13 @@ a:hover{
 }
 .book-list .title{
   font-weight: bold;
-  color: #fff;
+  margin-left: 5%;
+  color: orange;
   font-size: 1.2em;
 }
 .book-list .author{
   font-size: 0.9em;
-  color: #ddd;
+  color: orange;
 }
 .empty{
   margin: 20px;
@@ -83,13 +84,14 @@ a:hover{
 }
 
 .music-img{
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
 }
 
 .music-img img{
-  width: 60px;
-  height: 50px;
+  width: 80px;
+  height: 70px;
+  margin-top: 30%;
   padding: 5%;
 }
 
@@ -109,14 +111,14 @@ input[type='text']{
   padding: 10px;
   box-sizing: border-box;
   margin: 6px 0;
-  background: #3c1f3c;
-  color: #fff;
+  background: #555555;
+  color: orange;
   border: 0;
 }
 input[type='submit']{
   margin: 10px auto;
-  background: #6d3d6d;
-  color: white;
+  background: #333;
+  color: orange;
   box-shadow: 0 0 14px 0px black;
   border: 0;
   padding: 6px 20px;

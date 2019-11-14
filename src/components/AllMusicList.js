@@ -1,6 +1,6 @@
 import React, { useContext} from 'react';
 import { SongContext } from '../context/SongContext';
-import SongDetails from './SongDetails';
+import AllListSongDetails from './AllListSongDetails';
 
 const AllMusicList = () => {
     const {songs} = useContext(SongContext);
@@ -12,7 +12,7 @@ const AllMusicList = () => {
                 <ul>
                     {songs.map(songs => {
                         return (
-                            <SongDetails songs={songs} key={songs.id} /> );
+                            <AllListSongDetails songs={songs} key={songs.id} /> );
                     })}
                 </ul>
             </div>

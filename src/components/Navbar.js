@@ -7,7 +7,7 @@ const NavBar = () => {
         <div className='navbar'>
             <h1>My music list</h1>
             <a href="/">HomePage</a>
-            <p>Currently you have {songs.length} music!</p>
+            <p>Currently you have {songs.length} music on your list!</p>
         </div>
     );
 }
