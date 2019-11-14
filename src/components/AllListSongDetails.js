@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {SongContext} from '../context/SongContext';
-import music from "../images/music2.jpg"
+import music from "../images/music_logo.png"
 
 const AllListSongDetails = ({songs}) => {
     const {addSong} = useContext(SongContext);

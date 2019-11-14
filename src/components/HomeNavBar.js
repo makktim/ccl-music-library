@@ -1,6 +1,6 @@
 import React, {useContext,useState} from 'react';
 import {SongContext} from '../context/SongContext';
-import search from "../images/search.png";
+import search from "../images/loupe.png";
 
 const HomeNavBar = () => {
     const {searchSong} = useContext(SongContext);

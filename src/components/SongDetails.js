@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
 import {SongContext} from '../context/SongContext';
-import music from "../images/music2.jpg"
-import trash from "../images/trash.png";
+import music from "../images/music_logo.png"
+import trash from "../images/delete.png";
 
 const SongDetails = ({songs}) => {
     const {deleteSong} = useContext(SongContext);
