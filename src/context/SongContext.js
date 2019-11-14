@@ -19,7 +19,10 @@ const BookContextProvider = (props) => {
   }, [setSongs]);
 
   const searchSong = (search) => {
-    console.log(search)
+    axios.get('http://localhost:8080/songs/'+search)
+        .then(search => {
+          console.log(search);
+        }).catch(err =>console.log(err))
   };
 
   const addSong = (title,album,performer,length) => {
