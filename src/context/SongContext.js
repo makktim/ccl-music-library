@@ -18,7 +18,9 @@ const BookContextProvider = (props) => {
 
   }, [setSongs]);
 
-
+  const searchSong = (search) => {
+    console.log(search)
+  };
 
   const addSong = (title,album,performer,length) => {
     setSongs([...songs, {title,album,performer,length}]);
@@ -34,7 +36,7 @@ const BookContextProvider = (props) => {
   };
 
   return (
-    <SongContext.Provider value={{ songs, addSong, deleteSong }}>
+    <SongContext.Provider value={{ songs, addSong, deleteSong, searchSong }}>
       {props.children}
     </SongContext.Provider>
   );
