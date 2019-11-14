@@ -67,8 +67,8 @@ a:hover{
   font-weight: bold;
   margin-left: 5%;
   color: orange;
-  font-size: 1.2em;
 }
+
 .book-list .author{
   font-size: 0.9em;
   color: orange;
@@ -96,9 +96,23 @@ a:hover{
 }
 
 .trash{
-  margin-top: 5%;
+  margin-top: 2%;
   height: 40px;
-  right: 1%;
+  position: absolute;
+  right: 40%;
+}
+
+.add-btn{
+  padding: 10px 15px;
+  margin-left: 25%;
+  margin-top: 2%;
+  position: absolute;
+  background-color: #4D4D4D;
+  font-size: 38px;
+  font-weight: 900;
+  text-decoration: none;
+  color: orange;
+  border-radius: 50%;
 }
 
 form{

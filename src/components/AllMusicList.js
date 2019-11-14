@@ -10,7 +10,7 @@ const AllMusicList = () => {
         songs.length ? (
             <div className="book-list">
                 <ul>
-                    {songs.map(songs => {
+                    {songs.map((songs) => {
                         return (
                             <AllListSongDetails songs={songs} key={songs.id} /> );
                     })}

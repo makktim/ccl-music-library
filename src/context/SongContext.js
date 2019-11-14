@@ -7,11 +7,17 @@ const BookContextProvider = (props) => {
 
   const [songs, setSongs] = useState([]);
 
-  useEffect(() =>
-      fetch('http://localhost:8080/songs/list')
-          .then(res => res.json())
-          .then(res => setSongs(res)),[setSongs]
-  );
+  const getList = async () => {
+    fetch('http://localhost:8080/songs/list')
+        .then(res => res.json())
+        .then(res => setSongs(res))
+  };
+
+  useEffect(() => {
+    getList();
+
+  }, [setSongs]);
+
 
 
   const addSong = (title,album,performer,length) => {
@@ -26,15 +32,6 @@ const BookContextProvider = (props) => {
             console.log(songs);
           }).catch(err => console.log(err));
   };
-
-
-  // const removeBook = (title, performer) => {
-  //   setSongs(songs.filter(songs => songs.title !== title ));
-  //   axios.delete(`http://localhost:8080/songs/${title}/${performer}`, performer)
-  //       .then(songs => {
-  //         console.log(songs);
-  //       }).catch(err => console.log(err));
-  // };
 
   return (
     <SongContext.Provider value={{ songs, addSong, deleteSong }}>

@@ -5,6 +5,7 @@ import trash from "../images/trash.png";
 
 const SongDetails = ({songs}) => {
     const {deleteSong} = useContext(SongContext);
+
     return (
         <li>
             <div className="music-info">
@@ -12,8 +13,9 @@ const SongDetails = ({songs}) => {
                     <img src={music} alt=""/>
                 </div>
                 <div className="title">
-                    <h3>{songs.title}</h3>
-                    <p> {songs.performer} {songs.album}</p>
+                    <h2>{songs.title}</h2>
+                    <p className="performer"> {songs.performer}</p>
+                    <p className="album"> {songs.album}</p>
                     <p className="music-time"> time: {songs.length}</p>
                 </div>
                 <img className="trash" onClick={() => deleteSong(songs.id)} src={trash} alt=""/>
