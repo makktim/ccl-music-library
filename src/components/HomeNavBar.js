@@ -1,6 +1,8 @@
 import React, {useContext,useState} from 'react';
 import {SongContext} from '../context/SongContext';
 import search from "../images/loupe.png";
+import {Link} from "react-router-dom";
+import SearchMusicList from "./SearchMusicList";
 
 const HomeNavBar = () => {
     const {searchSong} = useContext(SongContext);
@@ -20,7 +22,7 @@ const HomeNavBar = () => {
             <h1>Best musics List</h1>
             <a className='menu' href="/list">MyList</a>
             <p>Search your favourite music!</p>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} >
                 <input type="text" placeholder="Search.." name="search" value={search} onChange={(e) => setSearch(e.target.value)} required />
                 <input type="submit" value="search" />
                 {/*<img className="search" onClick={() => handleSubmit()} src={search} alt=""/>*/}

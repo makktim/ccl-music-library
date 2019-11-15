@@ -6,6 +6,7 @@ import HomeNavBar from './components/HomeNavBar';
 import MusicList from './components/MusicList';
 import AllMusicList from './components/AllMusicList';
 import NewMusicForm from './components/MusicForm';
+import SearchMusicList from "./components/SearchMusicList";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <SongContextProvider>
         <Route exact path='/' component={HomeNavBar} />
         <Route exact path='/' component={AllMusicList} />
+          <Route path='/search' component={SearchMusicList} />
           <Route path='/list' component={NavBar} />
           <Route path='/list' component={NewMusicForm} />
         <Route path='/list' component={MusicList} />

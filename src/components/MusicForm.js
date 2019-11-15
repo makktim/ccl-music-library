@@ -56,6 +56,6 @@ const NewMusicForm = () => {
             <input type="submit" value="add new music" />
         </form>
     )
-}
+};
 
 export default NewMusicForm;

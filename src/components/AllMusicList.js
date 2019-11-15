@@ -3,16 +3,16 @@ import { SongContext } from '../context/SongContext';
 import AllListSongDetails from './AllListSongDetails';
 
 const AllMusicList = () => {
-    const {songs} = useContext(SongContext);
+    const {apiSongs} = useContext(SongContext);
 
 
     return(
-        songs.length ? (
+        apiSongs.length ? (
             <div className="book-list">
                 <ul>
-                    {songs.map((songs) => {
+                    {apiSongs.map((apiSongs) => {
                         return (
-                            <AllListSongDetails songs={songs} key={songs.id} /> );
+                            <AllListSongDetails apiSongs={apiSongs} key={apiSongs.id} /> );
                     })}
                 </ul>
             </div>

@@ -4,6 +4,7 @@ import music from "../images/music_logo.png"
 import trash from "../images/delete.png";
 
 const SongDetails = ({songs}) => {
+
     const {deleteSong} = useContext(SongContext);
 
     return (
