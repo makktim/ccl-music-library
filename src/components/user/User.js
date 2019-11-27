@@ -1,10 +1,14 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { SongContext } from '../../context/SongContext';
 import UserDetails from './UserDetails';
 
 const User = () => {
-    const {usersData} = useContext(SongContext);
-    console.log(usersData);
+
+    const {usersData,showAllUser} = useContext(SongContext);
+
+    useEffect(() => {
+        showAllUser()
+    },[]);
 
     return(
         usersData.length ? (

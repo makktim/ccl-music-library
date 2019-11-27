@@ -2,8 +2,6 @@ import React from 'react';
 
 const UserDetails = ({usersData}) => {
 
-    console.log(usersData);
-    console.log("userdetails");
 
 
     return (

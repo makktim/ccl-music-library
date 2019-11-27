@@ -21,6 +21,7 @@ function App() {
           <Route path='/list' component={NewMusicForm} />
         <Route path='/list' component={MusicList} />
         <Route path='/user/list' component={User}/>
+          <Route path='/user/:username' component={User}/>
       </SongContextProvider>
         </BrowserRouter>
     </div>

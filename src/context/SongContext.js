@@ -23,29 +23,16 @@ const BookContextProvider = (props) => {
         .then(res => setApiSongs(res))
   };
 
-  useEffect(() => {
-    getList();
+  // useEffect(() => {
+  //   searchSong();
+  //
+  // }, [setSearchSongs]);
 
-  }, [setSongs]);
+  // useEffect(() => {
+  //   showUserData();
+  //
+  // }, [setUserData]);
 
-  useEffect(() => {
-    getApiList();
-
-  }, [setApiSongs]);
-
-  useEffect(() => {
-    searchSong();
-
-  }, [setSearchSongs]);
-
-  useEffect(() => {
-    showUserData();
-
-  }, [setUserData]);
-
-  useEffect(() => {
-    showAllUser()
-  },[]);
 
 
   const searchSong = (search) => {
@@ -96,7 +83,7 @@ const BookContextProvider = (props) => {
   };
 
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, showUserData, showAllUser, addSong, deleteSong, searchSong }}>
+    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList }}>
       {props.children}
     </SongContext.Provider>
   );

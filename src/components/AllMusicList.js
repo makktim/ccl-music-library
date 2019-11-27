@@ -1,10 +1,14 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { SongContext } from '../context/SongContext';
 import AllListSongDetails from './AllListSongDetails';
 
 const AllMusicList = () => {
-    const {apiSongs} = useContext(SongContext);
-    console.log(apiSongs)
+    const {apiSongs, getApiList} = useContext(SongContext);
+
+    useEffect(() => {
+      getApiList();
+
+    }, []);
 
 
     return(
