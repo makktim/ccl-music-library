@@ -1,13 +1,15 @@
 import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
-export const SongContext = createContext();
+export const SongContext = createContext({});
 
 const BookContextProvider = (props) => {
 
   const [songs, setSongs] = useState([]);
   const [apiSongs, setApiSongs] = useState([]);
   const [searchSongs, setSearchSongs] = useState([]);
+  const [userData, setUserData] = useState([]);
+  const [usersData, setUsersData] = useState([]);
 
   const getList = async () => {
     fetch('http://localhost:8080/songs/list')
@@ -36,6 +38,15 @@ const BookContextProvider = (props) => {
 
   }, [setSearchSongs]);
 
+  useEffect(() => {
+    showUserData();
+
+  }, [setUserData]);
+
+  useEffect(() => {
+    showAllUser()
+  },[]);
+
 
   const searchSong = (search) => {
     axios.get('http://localhost:8080/songs/'+search)
@@ -54,20 +65,8 @@ const BookContextProvider = (props) => {
     }).catch(err => console.log(err));
   };
 
-  const newSong = (title,album,performer,length) => {
-    const song = {
-      title: title,
-      album: album,
-      performer: performer,
-      length: length
-    };
-    console.log(song);
-    addNewSong(song)
-
-  };
-
   const addSong = (title,album,performer,length) => {
-    newSong(title,album,performer,length)
+    addNewSong({title,album,performer,length});
   };
 
   const deleteSong = (id) => {
@@ -79,8 +78,25 @@ const BookContextProvider = (props) => {
           }).catch(err => console.log(err));
   };
 
+  const showAllUser = () =>{
+    axios.get(`http://localhost:8080/user/list`
+    ).then(allUserData => {
+      console.log("all: ", allUserData.data);
+      setUsersData(allUserData.data)
+    }).catch(err => console.log(err));
+  };
+
+  const showUserData = (username) =>{
+    console.log(username);
+    axios.post(`http://localhost:8080/user/${username}`, username
+    ).then(userData => {
+      console.log(userData)
+      setUserData(userData)
+    }).catch(err => console.log(err));
+  };
+
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, addSong, deleteSong, searchSong }}>
+    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, showUserData, showAllUser, addSong, deleteSong, searchSong }}>
       {props.children}
     </SongContext.Provider>
   );

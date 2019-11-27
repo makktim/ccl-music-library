@@ -1,16 +1,21 @@
-import React, { useContext, useState} from 'react';
+import React, { useContext} from 'react';
 import axios from 'axios';
 import { SongContext } from '../context/SongContext';
+import useInput from '../hooks/InputHook'
 
 const NewMusicForm = () => {
 
     const {addSong} = useContext(SongContext);
 
-    const [title, setTitle] = useState('');
-    const [album, setAlbum] = useState('');
-    const [performer, setPerformer] = useState('');
-    const [length, setLength] = useState('');
+    // const [title, setTitle] = useState('');
+    // const [album, setAlbum] = useState('');
+    // const [performer, setPerformer] = useState('');
+    // const [length, setLength] = useState('');
 
+    const titleInput = useInput('', 'title');
+    const albumInput = useInput('', 'album');
+    const performerInput = useInput('', 'performer');
+    const lengthInput = useInput('', 'length');
 
 
     const addNewSong = (song) =>{
@@ -35,24 +40,20 @@ const NewMusicForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(e);
-        newSong(title,album,performer,length);
-        addSong(title,album,performer,length);
-        setTitle('');
-        setAlbum('');
-        setPerformer('');
-        setLength('');
+        newSong(titleInput.value,albumInput.value,performerInput.value,lengthInput.value);
+        addSong(titleInput.value,albumInput.value,performerInput.value,lengthInput.value);
+        // titleInput('');
+        // setAlbum('');
+        // setPerformer('');
+        // setLength('');
     };
 
     return(
         <form onSubmit={handleSubmit}>
-            <input type="text" placeholder="title" value={title}
-            onChange={(e) => setTitle(e.target.value)} required />
-            <input type="text" placeholder="album" value={album}
-            onChange={(e) => setAlbum(e.target.value)} required />
-            <input type="text" placeholder="performer" value={performer}
-            onChange={(e) => setPerformer(e.target.value)} required />
-            <input type="text" placeholder="length" value={length}
-           onChange={(e) => setLength(e.target.value)} required />
+            <input {...titleInput}  />
+            <input  {...albumInput}/>
+            <input {...performerInput}/>
+            <input {...lengthInput}  />
             <input type="submit" value="add new music" />
         </form>
     )

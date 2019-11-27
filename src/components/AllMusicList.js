@@ -4,12 +4,13 @@ import AllListSongDetails from './AllListSongDetails';
 
 const AllMusicList = () => {
     const {apiSongs} = useContext(SongContext);
+    console.log(apiSongs)
 
 
     return(
         apiSongs.length ? (
             <div className="book-list">
-                <ul>
+                <ul className="book-list">
                     {apiSongs.map((apiSongs) => {
                         return (
                             <AllListSongDetails apiSongs={apiSongs} key={apiSongs.id} /> );
