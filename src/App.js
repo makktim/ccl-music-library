@@ -8,24 +8,30 @@ import AllMusicList from './components/AllMusicList';
 import NewMusicForm from './components/MusicForm';
 import SearchMusicList from "./components/SearchMusicList";
 import User from "./components/user/User";
+import UserNavbar from "./components/UserNavbar";
+import LoginForm from "./components/LoginForm";
 
 function App() {
-  return (
-    <div className="App">
-        <BrowserRouter>
-      <SongContextProvider>
-        <Route exact path='/' component={HomeNavBar} />
-        <Route exact path='/' component={AllMusicList} />
-          <Route path='/search/:search' component={SearchMusicList} />
-          <Route path='/list' component={NavBar} />
-          <Route path='/list' component={NewMusicForm} />
-        <Route path='/list' component={MusicList} />
-        <Route path='/user/list' component={User}/>
-          <Route path='/user/:username' component={User}/>
-      </SongContextProvider>
-        </BrowserRouter>
-    </div>
-  );
+    return (
+        <div className="App">
+            <BrowserRouter>
+                <UserNavbar/>
+                <div className="AppBody">
+                    <SongContextProvider>
+                        <Route exact path='/' component={HomeNavBar}/>
+                        <Route exact path='/' component={AllMusicList}/>
+                        <Route path='/search/:search' component={SearchMusicList}/>
+                        <Route path='/list' component={NavBar}/>
+                        <Route path='/list' component={NewMusicForm}/>
+                        <Route path='/list' component={MusicList}/>
+                        <Route path='/user/list' component={User}/>
+                        <Route path='/user/:username' component={User}/>
+                        <Route path='/login' component={LoginForm}/>
+                    </SongContextProvider>
+                </div>
+            </BrowserRouter>
+        </div>
+    );
 }
 
 export default App;
