@@ -3,7 +3,7 @@ import { SongContext } from '../context/SongContext';
 import SongDetails from './SongDetails';
 
 const MusicList = () => {
-    const {songs, getList} = useContext(SongContext);
+    const {songs, getList, setSongs} = useContext(SongContext);
 
     useEffect(() => {
       getList();

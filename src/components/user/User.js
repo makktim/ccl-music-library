@@ -1,29 +1,27 @@
-import React, { useContext, useEffect} from 'react';
-import { SongContext } from '../../context/SongContext';
+import React, {useContext} from 'react';
+import {SongContext} from '../../context/SongContext';
 import UserDetails from './UserDetails';
 
 const User = () => {
 
-    const {usersData,showAllUser} = useContext(SongContext);
+    const {userData, showUserData} = useContext(SongContext);
 
-    useEffect(() => {
-        showAllUser()
-    },[]);
+    // useEffect(() => {
+    //   showUserData();
+    //
+    // }, []);
 
-    return(
-        usersData.length ? (
+    return (
             <div className="book-list">
                 <ul>
-                    {usersData.map((usersData) => {
+                    {userData.map((userData) => {
                         return (
-                            <UserDetails usersData={usersData} key={usersData.id} />);
+                            <UserDetails userData={userData} key={userData.id}/>);
                     })}
                 </ul>
             </div>
-        ) : (
-            <div className = "empty">No Data</div>
-        )
     )
+
 }
 
 export default User;

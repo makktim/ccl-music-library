@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import axios from 'axios';
 
 export const SongContext = createContext({});
@@ -23,17 +23,6 @@ const BookContextProvider = (props) => {
         .then(res => res.json())
         .then(res => setApiSongs(res))
   };
-
-  // useEffect(() => {
-  //   searchSong();
-  //
-  // }, [setSearchSongs]);
-
-  // useEffect(() => {
-  //   showUserData();
-  //
-  // }, [setUserData]);
-
 
 
   const searchSong = (search) => {
@@ -74,12 +63,12 @@ const BookContextProvider = (props) => {
     }).catch(err => console.log(err));
   };
 
-  const showUserData = (username) =>{
-    console.log(username);
-    axios.post(`http://localhost:8080/user/${username}`, username
+  const showUserData = (id) =>{
+    console.log(id);
+    axios.get(`http://localhost:8080/user/${id}`, id
     ).then(userData => {
-      console.log(userData)
-      setUserData(userData)
+      console.log(userData);
+      setUserData(userData.data)
     }).catch(err => console.log(err));
   };
 
@@ -117,10 +106,10 @@ const BookContextProvider = (props) => {
     };
 
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser, newUserCredentials }}>
+    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, userName, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser, newUserCredentials }}>
       {props.children}
     </SongContext.Provider>
   );
-}
+};
  
 export default BookContextProvider;
