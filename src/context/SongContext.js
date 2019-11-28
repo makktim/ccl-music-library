@@ -88,7 +88,6 @@ const BookContextProvider = (props) => {
     axios.post('http://localhost:8080/user/add', user
     ).then(user => {
       console.log(user);
-      getList();
     }).catch(err => console.log(err));
 
   };
