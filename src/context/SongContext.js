@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 import axios from 'axios';
 
 export const SongContext = createContext({});
@@ -22,17 +22,6 @@ const BookContextProvider = (props) => {
         .then(res => res.json())
         .then(res => setApiSongs(res))
   };
-
-  // useEffect(() => {
-  //   searchSong();
-  //
-  // }, [setSearchSongs]);
-
-  // useEffect(() => {
-  //   showUserData();
-  //
-  // }, [setUserData]);
-
 
 
   const searchSong = (search) => {
@@ -77,7 +66,7 @@ const BookContextProvider = (props) => {
     console.log(username);
     axios.post(`http://localhost:8080/user/${username}`, username
     ).then(userData => {
-      console.log(userData)
+      console.log(userData);
       setUserData(userData)
     }).catch(err => console.log(err));
   };
@@ -87,6 +76,6 @@ const BookContextProvider = (props) => {
       {props.children}
     </SongContext.Provider>
   );
-}
+};
  
 export default BookContextProvider;

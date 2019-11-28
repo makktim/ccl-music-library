@@ -2,20 +2,15 @@ import React from 'react';
 
 const UserDetails = ({usersData}) => {
 
-
-
     return (
-        <li>
-            <div className="music-info">
-                <div className="title">
+            <div className="user">
+                <div className="username">
                     <h2>{usersData.username}</h2>
-                    <p className="performer"> {usersData.firstName}</p>
-                    <p className="album"> {usersData.lastName}</p>
-                    <p className="music-time"> {usersData.email}</p>
+                    <p className="firstname"> {usersData.firstName}</p>
+                    <p className="lastname"> {usersData.lastName}</p>
+                    <p className="email"> {usersData.email}</p>
                 </div>
             </div>
-        </li>
-
 
     );
 };
