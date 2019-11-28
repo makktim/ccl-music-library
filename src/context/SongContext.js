@@ -10,6 +10,7 @@ const BookContextProvider = (props) => {
   const [searchSongs, setSearchSongs] = useState([]);
   const [userData, setUserData] = useState([]);
   const [usersData, setUsersData] = useState([]);
+  const [userName, setUserName] = useState([]);
 
   const getList = async () => {
     fetch('http://localhost:8080/songs/list')
@@ -82,8 +83,23 @@ const BookContextProvider = (props) => {
     }).catch(err => console.log(err));
   };
 
+  const addNewUser = (user) =>{
+    console.log(user);
+    axios.post('http://localhost:8080/user/add', user
+    ).then(user => {
+      console.log(user);
+      getList();
+    }).catch(err => console.log(err));
+
+  };
+
+  const addUser = (userName,password,firstName,lastName, email) => {
+    setUserName(userName);
+    addNewUser({userName,password,firstName,lastName, email});
+  };
+
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList }}>
+    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser }}>
       {props.children}
     </SongContext.Provider>
   );
