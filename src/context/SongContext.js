@@ -77,7 +77,6 @@ const BookContextProvider = (props) => {
     axios.post('http://localhost:8080/user/add', user
     ).then(user => {
       console.log(user);
-      getList();
     }).catch(err => console.log(err));
 
   };
@@ -87,8 +86,25 @@ const BookContextProvider = (props) => {
     addNewUser({userName,password,firstName,lastName, email});
   };
 
+    const loginUser = (userCredentials) =>{
+        console.log(userCredentials);
+        axios.post('http://localhost:8080/auth/signin', userCredentials
+        ).then(token => {
+            console.log(token);
+        }).catch(err => console.log(err));
+    };
+
+    const newUserCredentials = (username, password) => {
+        const userCredentials = {
+            username: username,
+            password: password
+        };
+        console.log(userCredentials);
+        loginUser(userCredentials)
+    };
+
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser }}>
+    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, usersData, getApiList, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser, newUserCredentials }}>
       {props.children}
     </SongContext.Provider>
   );

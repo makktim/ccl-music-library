@@ -6,8 +6,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #555;
   margin: auto;
-  width: 50%;
-  padding: 10px;
 }
 
 code {
@@ -16,13 +14,25 @@ code {
 }
 
 
-.App{
+.AppBody{
+  text-align: center;
   background: #424242;
-  margin: 20px;
-  width: 90%;
-  max-width: 700px;
+  padding: 10px;
+  margin: 0px auto;
+  width: 50%;
+  max-width: 50%;
   color: orange;
+}
 
+.LoginBody{
+  text-align: center;
+  background: #424242;
+  padding: 10px;
+  margin: auto;
+  width: 50%;
+  max-width: 700px;
+  max-height: 400px;
+  color: orange;
 }
 
 a{
@@ -44,6 +54,12 @@ a:hover{
 
 .navbar h1{
   margin: 10px 0;
+}
+
+.usernavbar{
+  background: #333;
+  align-self: center;
+  padding: 10px;
 }
 
 .book-list{
@@ -118,6 +134,20 @@ a:hover{
   text-decoration: none;
   color: orange;
   border-radius: 50%;
+}
+
+.homeBtn{
+  align-self: flex-start;
+}
+
+.loginBtn{
+  position: absolute;
+  right: 1%;
+}
+
+.registrationBtn{
+  position: absolute;
+  right: 5%;
 }
 
 form{

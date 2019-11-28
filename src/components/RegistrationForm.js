@@ -13,6 +13,7 @@ const NewRegistrationForm = () => {
     const firstNameInput = useInput('', 'firstName');
     const lastNameInput = useInput('', 'lastName');
     const emailInput = useInput('', 'email');
+    const roleInput = "USER";
 
     const handleSubmit = (e) => {
         //e.preventDefault();
@@ -22,7 +23,8 @@ const NewRegistrationForm = () => {
             passwordInput.value,
             firstNameInput.value,
             lastNameInput.value,
-            emailInput.value
+            emailInput.value,
+            roleInput
         );
     };
 
