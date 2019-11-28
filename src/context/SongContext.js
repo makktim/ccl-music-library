@@ -37,7 +37,7 @@ const BookContextProvider = (props) => {
 
 
   const searchSong = (search) => {
-    axios.get('http://localhost:8080/songs/'+search)
+    axios.get(`http://localhost:8080/songs/search/${search}`, search)
         .then(search => {
           console.log(search);
           setSearchSongs(search);
