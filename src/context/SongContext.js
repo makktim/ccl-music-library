@@ -65,10 +65,10 @@ const BookContextProvider = (props) => {
 
   const showUserData = (id) =>{
     console.log(id);
-    axios.post(`http://localhost:8080/user/${id}`, id
+    axios.get(`http://localhost:8080/user/${id}`, id
     ).then(userData => {
       console.log(userData);
-      setUserData(userData)
+      setUserData(userData.data)
     }).catch(err => console.log(err));
   };
 

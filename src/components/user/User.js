@@ -9,11 +9,9 @@ const User = () => {
     // useEffect(() => {
     //   showUserData();
     //
-    // }, [setUserData]);
+    // }, []);
 
     return (
-        <div>
-            <h1 className="title">This is your profile page</h1>
             <div className="book-list">
                 <ul>
                     {userData.map((userData) => {
@@ -22,7 +20,6 @@ const User = () => {
                     })}
                 </ul>
             </div>
-        </div>
     )
 
 }

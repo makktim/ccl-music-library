@@ -29,7 +29,7 @@ function App() {
                         <Route path='/list' component={NewMusicForm}/>
                         <Route path='/list' component={MusicList}/>
                         <Route path='/user/list' component={AllUser}/>
-                        <Route path='/user/:username' component={User}/>
+                        <Route path='/userpage' component={User}/>
                         <Route path='/login' component={LoginForm}/>
                     </SongContextProvider>
                 </div>
