@@ -7,6 +7,7 @@ import MusicList from './components/MusicList';
 import AllMusicList from './components/AllMusicList';
 import NewMusicForm from './components/MusicForm';
 import SearchMusicList from "./components/SearchMusicList";
+import AllUser from "./components/user/AllUser";
 import User from "./components/user/User";
 import NewRegistrationForm from "./components/RegistrationForm";
 
@@ -22,7 +23,7 @@ function App() {
           <Route path='/list' component={NavBar} />
           <Route path='/list' component={NewMusicForm} />
         <Route path='/list' component={MusicList} />
-        <Route path='/user/list' component={User}/>
+        <Route path='/user/list' component={AllUser}/>
           <Route path='/user/:username' component={User}/>
       </SongContextProvider>
         </BrowserRouter>

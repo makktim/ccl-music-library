@@ -3,7 +3,12 @@ import { SongContext } from '../context/SongContext';
 import SearchListSongDetails from './SearchListSongDetails';
 
 const SearchMusicList = () => {
-    const {searchSongs} = useContext(SongContext);
+    const {searchSongs, searchSong} = useContext(SongContext);
+
+    // useEffect(() => {
+    //   searchSong();
+    //
+    // }, [setSearchSongs]);
 
 
     return(
