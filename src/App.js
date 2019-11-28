@@ -15,7 +15,7 @@ function App() {
       <SongContextProvider>
         <Route exact path='/' component={HomeNavBar} />
         <Route exact path='/' component={AllMusicList} />
-          <Route path='/search' component={SearchMusicList} />
+          <Route path='/search/:search' component={SearchMusicList} />
           <Route path='/list' component={NavBar} />
           <Route path='/list' component={NewMusicForm} />
         <Route path='/list' component={MusicList} />
