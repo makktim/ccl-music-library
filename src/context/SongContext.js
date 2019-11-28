@@ -101,7 +101,9 @@ const BookContextProvider = (props) => {
         console.log(userCredentials);
         axios.post('http://localhost:8080/auth/signin', userCredentials
         ).then(token => {
-            console.log(token);
+            localStorage.setItem('token', "Bearer " + token.data['token']);
+            console.log(localStorage.getItem('token'));
+            axios.defaults.headers['Authorization'] = localStorage.getItem('token');
         }).catch(err => console.log(err));
     };
 
