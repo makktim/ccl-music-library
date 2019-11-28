@@ -3,6 +3,7 @@ import {SongContext} from '../context/SongContext';
 import music from "../images/music_logo.png"
 
 const AllListSongDetails = ({apiSongs}) => {
+
     const {addSong} = useContext(SongContext);
 
     return (

@@ -1,8 +1,5 @@
 import React, {useContext,useState} from 'react';
 import {SongContext} from '../context/SongContext';
-import search from "../images/loupe.png";
-import {Link} from "react-router-dom";
-import SearchMusicList from "./SearchMusicList";
 
 const HomeNavBar = () => {
     const {searchSong} = useContext(SongContext);

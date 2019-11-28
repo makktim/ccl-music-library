@@ -7,6 +7,7 @@ import MusicList from './components/MusicList';
 import AllMusicList from './components/AllMusicList';
 import NewMusicForm from './components/MusicForm';
 import SearchMusicList from "./components/SearchMusicList";
+import User from "./components/user/User";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
           <Route path='/list' component={NavBar} />
           <Route path='/list' component={NewMusicForm} />
         <Route path='/list' component={MusicList} />
+        <Route path='/user/list' component={User}/>
+          <Route path='/user/:username' component={User}/>
       </SongContextProvider>
         </BrowserRouter>
     </div>

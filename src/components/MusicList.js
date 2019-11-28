@@ -1,10 +1,14 @@
-import React, { useContext} from 'react';
+import React, { useContext, useEffect} from 'react';
 import { SongContext } from '../context/SongContext';
 import SongDetails from './SongDetails';
 
 const MusicList = () => {
-    const {songs} = useContext(SongContext);
+    const {songs, getList} = useContext(SongContext);
 
+    useEffect(() => {
+      getList();
+
+    }, []);
 
     return(
         songs.length ? (
