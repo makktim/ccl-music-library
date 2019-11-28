@@ -10,6 +10,8 @@ import SearchMusicList from "./components/SearchMusicList";
 import User from "./components/user/User";
 import UserNavbar from "./components/UserNavbar";
 import LoginForm from "./components/LoginForm";
+import NewRegistrationForm from "./components/RegistrationForm";
+
 
 function App() {
     return (
@@ -20,6 +22,7 @@ function App() {
                     <SongContextProvider>
                         <Route exact path='/' component={HomeNavBar}/>
                         <Route exact path='/' component={AllMusicList}/>
+                        <Route path='/registration' component={NewRegistrationForm}/>
                         <Route path='/search/:search' component={SearchMusicList}/>
                         <Route path='/list' component={NavBar}/>
                         <Route path='/list' component={NewMusicForm}/>
