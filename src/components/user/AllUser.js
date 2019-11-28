@@ -10,6 +10,7 @@ const AllUser = () => {
         showAllUser()
     },[]);
 
+    console.log(usersData);
     return(
         usersData.length ? (
             <div className="book-list">

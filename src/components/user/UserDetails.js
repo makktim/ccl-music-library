@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import {SongContext} from "../../context/SongContext";
 
 const UserDetails = ({usersData}) => {
+
+
 
     return (
             <div className="user">
                 <div className="username">
-                    <h2>{usersData.username}</h2>
-                    <p className="firstname"> {usersData.firstName}</p>
+                    <p>{usersData.userName}</p>
+                    <p className="firstname"> {usersData.firstName} </p>
                     <p className="lastname"> {usersData.lastName}</p>
-                    <p className="email"> {usersData.email}</p>
+                    <p className="email"> {usersData.email} }</p>
                 </div>
+
             </div>
 
     );
