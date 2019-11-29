@@ -12,7 +12,7 @@ const LoginForm = () => {
 
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        //e.preventDefault();
         console.log(e);
         newUserCredentials(usernameInput.value,passwordInput.value);
     };
@@ -20,7 +20,8 @@ const LoginForm = () => {
     return (
         <div className="LoginBody">
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} action="/">
+
                 <input {...usernameInput}  />
                 <input  {...passwordInput}/>
 
