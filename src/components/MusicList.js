@@ -3,10 +3,11 @@ import { SongContext } from '../context/SongContext';
 import SongDetails from './SongDetails';
 
 const MusicList = () => {
-    const {songs, getList, setSongs} = useContext(SongContext);
+    const {songs, getList, setSongs, storageToken, storage} = useContext(SongContext);
 
     useEffect(() => {
       getList();
+        console.log(songs)
 
     }, []);
 

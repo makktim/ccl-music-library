@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function(initial='', placeholder = 'inputfield') {
+export default function(initial='', placeholder = 'inputfield', type="text") {
 
     const [value, setValue] = useState(initial);
 
@@ -13,7 +13,7 @@ export default function(initial='', placeholder = 'inputfield') {
         value,
         onChange,
         required:true,
-        type:"text",
+        type,
         placeholder
     }
 }

@@ -1,5 +1,6 @@
 import React, {useContext,useState} from 'react';
 import {SongContext} from '../context/SongContext';
+import {Link} from "react-router-dom";
 
 const HomeNavBar = () => {
     const {searchSong} = useContext(SongContext);
@@ -17,7 +18,8 @@ const HomeNavBar = () => {
     return (
         <div className='navbar'>
             <h1>Best musics List</h1>
-            <a className='menu' href="/list">MyList</a>
+            <Link to="/list">MyList</Link>
+            {/*<a className='menu' href="/list">MyList</a>*/}
             <p>Search your favourite music!</p>
             <form onSubmit={handleSubmit} >
                 <input type="text" placeholder="Search.." name="search" value={search} onChange={(e) => setSearch(e.target.value)} required />

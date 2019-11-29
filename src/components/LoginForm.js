@@ -6,13 +6,14 @@ const LoginForm = () => {
 
     const usernameInput = useInput('', 'username');
     const passwordInput = useInput('', 'password');
+    const em = useInput('', 'em', "email");
 
     const {newUserCredentials} = useContext(SongContext);
 
 
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         console.log(e);
         newUserCredentials(usernameInput.value,passwordInput.value);
     };
