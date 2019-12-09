@@ -16,14 +16,11 @@ const BookContextProvider = (props) => {
 
 
   const getList = async (id) => {
-    // fetch('http://localhost:8080/songs/list')
-    //     .then(res => res.json())
-    //     .then(res => setSongs(res))
       console.log(token)
       axios.defaults.headers.common = {
           "Authorization": 'Bearer ' + token
       };
-      axios.get(`http://localhost:8080/songs/list/${id}`, id)
+      axios.get(`http://localhost:8080/songs/list/${id}`, userId)
           .then(userSongs => {
               console.log(userSongs.data);
               setSongs(userSongs.data);
@@ -31,9 +28,6 @@ const BookContextProvider = (props) => {
   };
 
   const getApiList = async () => {
-    // fetch('http://localhost:8080/songs')
-    //     .then(res => res.json())
-    //     .then(res => setApiSongs(res))
       axios.get('http://localhost:8080/songs')
           .then(songs => {
               console.log(songs.data);
@@ -52,7 +46,7 @@ const BookContextProvider = (props) => {
 
   const addNewSong = (song) =>{
     console.log(song);
-    axios.post('http://localhost:8080/songs/add', song
+    axios.post('http://localhost:8080/songs/add', song //Todo: Change url of  this route
     ).then(song => {
       console.log(song);
       getList();
@@ -61,12 +55,12 @@ const BookContextProvider = (props) => {
 
   const addSong = (title,album,performer,length) => {
     addNewSong({title,album,performer,length});
-  };
+  }; // Todo : Refactorate - multiply addNewSong and addSong
 
   const deleteSong = (id) => {
     console.log(id);
     setSongs(songs.filter(songs => songs.id !== id ));
-      axios.delete(`http://localhost:8080/songs/${id}`, id)
+      axios.delete(`http://localhost:8080/songs/${id}`, id) //Todo: Change url of  this route
           .then(songs => {
             console.log(songs);
           }).catch(err => console.log(err));
@@ -101,19 +95,7 @@ const BookContextProvider = (props) => {
   const addUser = (userName,password,firstName,lastName, email) => {
     setUserName(userName);
     addNewUser({userName,password,firstName,lastName, email});
-  };
-
-    // const loginUser = (userCredentials) =>{
-    //     console.log(userCredentials);
-    //     axios.post('http://localhost:8080/auth/signin', userCredentials
-    //     ).then(token => {
-    //         localStorage.setItem('token', 'Bearer ' + token.data['token']);
-    //         console.log(localStorage.getItem('token'));
-    //         axios.defaults.headers.common = {
-    //             "Authorization": localStorage.getItem('token')
-    //         };
-    //     }).catch(err => console.log(err));
-    // };
+  }; // Todo : Refactorate - multiply addNewUser and addUser
 
     const loginUser = (value) => {
         axios.post('http://localhost:8080/auth/signin', value
@@ -141,7 +123,6 @@ const BookContextProvider = (props) => {
         };
     };
 
-
     const newUserCredentials = (username, password) => {
         const userCredentials = {
             username: username,
@@ -152,7 +133,28 @@ const BookContextProvider = (props) => {
     };
 
   return (
-    <SongContext.Provider value={{ songs, apiSongs, searchSongs, userData, userName, usersData, token, getApiList, storageToken, showUserData, showAllUser, addSong, deleteSong, searchSong, getList, addUser, addNewUser, newUserCredentials }}>
+    <SongContext.Provider value={
+        {
+            songs,
+            apiSongs,
+            searchSongs,
+            userData,
+            userName,
+            usersData,
+            token,
+            getApiList,
+            storageToken,
+            showUserData,
+            showAllUser,
+            addSong,
+            deleteSong,
+            searchSong,
+            getList,
+            addUser,
+            addNewUser,
+            newUserCredentials
+        }
+    }>
       {props.children}
     </SongContext.Provider>
   );
