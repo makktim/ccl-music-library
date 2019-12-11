@@ -19,12 +19,10 @@ const HomeNavBar = () => {
         <div className='navbar'>
             <h1>Best musics List</h1>
             <Link to="/list">MyList</Link>
-            {/*<a className='menu' href="/list">MyList</a>*/}
             <p>Search your favourite music!</p>
             <form onSubmit={handleSubmit} >
                 <input type="text" placeholder="Search.." name="search" value={search} onChange={(e) => setSearch(e.target.value)} required />
                 <input type="submit" value="search" />
-                {/*<img className="search" onClick={() => handleSubmit()} src={search} alt=""/>*/}
             </form>
         </div>
     );
