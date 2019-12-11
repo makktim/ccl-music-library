@@ -18,7 +18,9 @@ function App() {
     return (
         <div className="App">
             <BrowserRouter>
+                <SongContextProvider>
                 <UserNavbar/>
+                </SongContextProvider>
                 <div className="AppBody">
                     <SongContextProvider>
                         <Route exact path='/' component={HomeNavBar}/>

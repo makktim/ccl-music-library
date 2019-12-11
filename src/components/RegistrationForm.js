@@ -16,7 +16,7 @@ const NewRegistrationForm = () => {
     const roleInput = "USER";
 
     const handleSubmit = (e) => {
-        //e.preventDefault();
+        e.preventDefault();
         console.log(e);
         addUser(
             userNameInput.value,

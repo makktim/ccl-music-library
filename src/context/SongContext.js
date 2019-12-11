@@ -12,6 +12,7 @@ const BookContextProvider = (props) => {
     const [usersData, setUsersData] = useState([]);
     const [userName, setUserName] = useState('');
     const [ token, setToken] = useState([]);
+    const [ userLoggedIn, setUserLoggedIn] = useState(true);
 
     const getList = async () => {
         console.log(token);
@@ -28,6 +29,7 @@ const BookContextProvider = (props) => {
             .then(songs => {
                 console.log(songs.data);
                 setApiSongs(songs.data);
+                userLoggedIn(false);
             }).catch(err =>console.log(err))
     };
 
@@ -93,16 +95,35 @@ const BookContextProvider = (props) => {
         addNewUser({userName,password,firstName,lastName, email});
     };
 
+    const myLogin = () => {
+        setUserLoggedIn(false);
+    };
+
     const loginUser = (value) => {
-        axios.post('http://localhost:8762/musicservice/auth/signin', value
+        axios.post('http://localhost:8762/auth/signin', value
         ).then(value => {
             const username = value.data.username;
             setUserName(username);
+            setUserLoggedIn(true);
             console.log(username);
-            console.log(userName);
             storageToken(value);
         })
             .catch(err => console.log(err));
+    };
+
+    const logOut = () => {
+        setUserLoggedIn(true);
+        console.log(setUserLoggedIn)
+        // setToken("");
+        // localStorage.setItem("token" , " ");
+        // axios.defaults.headers.common = {
+        //     "Access-Control-Allow-Origin" : "*",
+        //     "Content-Type" :  "application/json",
+        //     "cache-control": "no-cache",
+        //     "Authorization": " ",
+        //     "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
+        //
+        // };
     };
 
     const storageToken = (value) => {
@@ -139,6 +160,7 @@ const BookContextProvider = (props) => {
                 userData,
                 userName,
                 usersData,
+                userLoggedIn,
                 token,
                 getApiList,
                 storageToken,
@@ -150,6 +172,8 @@ const BookContextProvider = (props) => {
                 getList,
                 addUser,
                 addNewUser,
+                myLogin,
+                logOut,
                 newUserCredentials
             }
         }>
