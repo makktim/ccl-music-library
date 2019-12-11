@@ -16,11 +16,14 @@ const BookContextProvider = (props) => {
 
 
   const getList = async (id) => {
-      console.log(token);
+    // fetch('http://localhost:8080/songs/list')
+    //     .then(res => res.json())
+    //     .then(res => setSongs(res))
+      console.log(token)
       axios.defaults.headers.common = {
           "Authorization": 'Bearer ' + token
       };
-      axios.get(`http://localhost:8080/songs/list/${id}`, id)
+      axios.get(`http://localhost:8762/musicservice/songs/list/${id}`, id)
           .then(userSongs => {
               console.log(userSongs.data);
               setSongs(userSongs.data);
@@ -28,7 +31,10 @@ const BookContextProvider = (props) => {
   };
 
   const getApiList = async () => {
-      axios.get('http://localhost:8080/songs')
+    // fetch('http://localhost:8080/songs')
+    //     .then(res => res.json())
+    //     .then(res => setApiSongs(res))
+      axios.get('http://localhost:8762/musicservice/songs')
           .then(songs => {
               console.log(songs.data);
               setApiSongs(songs.data);
@@ -37,7 +43,7 @@ const BookContextProvider = (props) => {
 
 
   const searchSong = (search) => {
-    axios.get(`http://localhost:8080/songs/search/${search}`, search)
+    axios.get(`http://localhost:8762/musicservice/songs/search/${search}`, search)
         .then(search => {
           console.log(search);
           setSearchSongs(search);
@@ -46,7 +52,7 @@ const BookContextProvider = (props) => {
 
   const addNewSong = (song) =>{
     console.log(song);
-    axios.post('http://localhost:8080/songs/add', song
+    axios.post('http://localhost:8762/musicservice/songs/add', song
     ).then(song => {
       console.log(song);
       getList();
@@ -60,14 +66,14 @@ const BookContextProvider = (props) => {
   const deleteSong = (id) => {
     console.log(id);
     setSongs(songs.filter(songs => songs.id !== id ));
-      axios.delete(`http://localhost:8080/songs/${id}`, id)
+      axios.delete(`http://localhost:8762/musicservice/songs/${id}`, id)
           .then(songs => {
             console.log(songs);
           }).catch(err => console.log(err));
   };
 
   const showAllUser = () =>{
-    axios.get(`http://localhost:8080/user/list`
+    axios.get(`http://localhost:8762/musicservice/user/list`
     ).then(allUserData => {
       console.log("all: ", allUserData.data);
       setUsersData(allUserData.data)
@@ -76,7 +82,7 @@ const BookContextProvider = (props) => {
 
   const showUserData = (id) =>{
     console.log(id);
-    axios.get(`http://localhost:8080/user/${id}`, id
+    axios.get(`http://localhost:8762/musicservice/user/${id}`, id
     ).then(userData => {
       console.log(userData);
       setUserData(userData)
@@ -85,7 +91,7 @@ const BookContextProvider = (props) => {
 
   const addNewUser = (user) =>{
     console.log(user);
-    axios.post('http://localhost:8080/user/add', user
+    axios.post('http://localhost:8762/musicservice/user/add', user
     ).then(user => {
       console.log(user);
     }).catch(err => console.log(err));
@@ -110,7 +116,7 @@ const BookContextProvider = (props) => {
     // };
 
     const loginUser = (value) => {
-        axios.post('http://localhost:8080/auth/signin', value
+        axios.post('http://localhost:8762/musicservice/auth/signin', value
         ).then(value => {
             console.log(value);
             setUserId(value);

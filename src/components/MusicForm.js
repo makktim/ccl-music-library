@@ -20,7 +20,7 @@ const NewMusicForm = () => {
 
     const addNewSong = (song) =>{
         console.log(song);
-        axios.post('http://localhost:8080/songs/add', song
+        axios.post('http://localhost:8762/musicservice/songs/add', song
         ).then(song => {
             console.log(song);
         }).catch(err => console.log(err));
