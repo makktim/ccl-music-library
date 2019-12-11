@@ -16,10 +16,7 @@ const BookContextProvider = (props) => {
 
 
   const getList = async (id) => {
-    // fetch('http://localhost:8080/songs/list')
-    //     .then(res => res.json())
-    //     .then(res => setSongs(res))
-      console.log(token)
+      console.log(token);
       axios.defaults.headers.common = {
           "Authorization": 'Bearer ' + token
       };
@@ -31,9 +28,6 @@ const BookContextProvider = (props) => {
   };
 
   const getApiList = async () => {
-    // fetch('http://localhost:8080/songs')
-    //     .then(res => res.json())
-    //     .then(res => setApiSongs(res))
       axios.get('http://localhost:8080/songs')
           .then(songs => {
               console.log(songs.data);
