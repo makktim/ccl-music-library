@@ -1,5 +1,6 @@
 import React, {useContext} from 'react';
 import {SongContext} from "../context/SongContext";
+import trash from "../images/delete.png";
 
 const CommentDetails = ({comments}) => {
 
@@ -8,7 +9,7 @@ const CommentDetails = ({comments}) => {
     return(
         <li>
             <p>{comments.comment}</p>
-            <button className="deleteComment" onClick =>{() => deleteComment(comments.id, songId)}></button>
+            <button className="deleteComment" onClick ={() => deleteComment(comments.id, songId)}>Add</button>
         </li>
     )
 };

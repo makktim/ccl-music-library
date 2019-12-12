@@ -26,12 +26,12 @@ function App() {
                     <SongContextProvider>
                         <Route exact path='/' component={HomeNavBar}/>
                         <Route exact path='/' component={AllMusicList}/>
-                        <Route path='/comments' component={Comment}/>
                         <Route path='/registration' component={NewRegistrationForm}/>
                         <Route path='/search/:search' component={SearchMusicList}/>
                         <Route path='/list' component={NavBar}/>
                         <Route path='/list' component={NewMusicForm}/>
                         <Route path='/list' component={MusicList}/>
+                        <Route path='/comments' component={Comment}/>
                         <Route path='/user/list' component={AllUser}/>
                         <Route path='/userpage' component={User}/>
                         <Route path='/login' component={LoginForm}/>

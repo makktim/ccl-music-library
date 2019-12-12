@@ -20,16 +20,17 @@ const BookContextProvider = (props) => {
 
     const getCommentsBySongId = async (songId) => {
         console.log(songId);
-        axios.get(`http://localhost:8762/commentservice/comments/`${songId})
+        axios.get(`http://localhost:8762/commentservice/comments/${songId}`)
             .then(commentsBySongId => {
                 setSongId(songId);
+                console.log("lefutott");
                 setCommentsBySongId(commentsBySongId.data);
             }).catch(err => console.log(err));
     };
 
     const addComment = async (comment) =>{
         console.log(comment);
-        axios.post(`http://localhost:8762/commentservice/comments/`${songId}, comment)
+        axios.post(`http://localhost:8762/commentservice/comments/${songId}`, comment)
             .then(comment =>{
                     getCommentsBySongId(songId);
             }).catch(err=>console.log(err));
@@ -39,7 +40,7 @@ const BookContextProvider = (props) => {
     const deleteComment = async (songId, commentId) =>{
         console.log(songId);
         console.log(commentId);
-        axios.delete(`http://localhost:8762/commentservice/comments/`${songId}`/`${commentId})
+        axios.delete(`http://localhost:8762/commentservice/comments/${songId}/${commentId}`)
             .then(songId =>{
                 getCommentsBySongId(songId);
             }).catch(err=>console.log(err));

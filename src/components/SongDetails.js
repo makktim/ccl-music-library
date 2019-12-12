@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {SongContext} from '../context/SongContext';
 import music from "../images/music_logo.png"
 import trash from "../images/delete.png";
-import Link from "react-router-dom/modules/Link";
+import {Link} from "react-router-dom";
 
 
 const SongDetails = ({songs}) => {
@@ -22,7 +22,7 @@ const SongDetails = ({songs}) => {
                     <p className="music-time"> time: {songs.length}</p>
                 </div>
                 <img className="trash" onClick={() => deleteSong(songs.id)} src={trash} alt=""/>
-                <Link to = "/comment" className="comment" onClick =>{() => getCommentsBySongId(songs.id)}></Link>
+                <Link to = "/comments" className="comment" onClick ={() => getCommentsBySongId(songs.id)}>Comment</Link>
             </div>
         </li>
 
