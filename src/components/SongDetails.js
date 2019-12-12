@@ -5,7 +5,7 @@ import trash from "../images/delete.png";
 
 const SongDetails = ({songs}) => {
 
-    const {deleteSong} = useContext(SongContext);
+    const {createSongForDelete} = useContext(SongContext);
 
     return (
         <li>
@@ -19,7 +19,7 @@ const SongDetails = ({songs}) => {
                     <p className="album"> {songs.album}</p>
                     <p className="music-time"> time: {songs.length}</p>
                 </div>
-                <img className="trash" onClick={() => deleteSong(songs.id)} src={trash} alt=""/>
+                <img className="trash" onClick={() => createSongForDelete(songs.id, songs.title, songs.album, songs.performer, songs.length)} src={trash} alt=""/>
             </div>
         </li>
 
