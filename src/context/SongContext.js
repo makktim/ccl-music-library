@@ -13,6 +13,15 @@ const BookContextProvider = (props) => {
     const [userName, setUserName] = useState('');
     const [ token, setToken] = useState([]);
     const [ userLoggedIn, setUserLoggedIn] = useState(true);
+    const [vote, setVote] = useState([]);
+
+
+    const getVoteBySongId = async (songId) => {
+        axios.get(`http://localhost:8762/voteservice/vote/${songId}`)
+            .then(vote =>{
+                    setVote(vote.data);
+            }).catch(err =>console.log(err));
+    }
 
     const getList = async () => {
         console.log(token);
@@ -42,11 +51,27 @@ const BookContextProvider = (props) => {
             }).catch(err =>console.log(err))
     };
 
+    const addVote = (songId) => {
+        axios.post(`http://localhost:8762/voteservice/vote/${songId}`, 0)
+            .then(vote => {
+                console.log(vote);
+            }).catch(err =>console.log(err))
+    };
+
+
+    const modifyVote = (vote, songId) => {
+        axios.put(`http://localhost:8762/voteservice/vote/${songId}`, vote)
+            .then(vote => {
+                console.log(vote);
+            }).catch(err => console.log(err));
+    };
+
     const addNewSong = (song) =>{
         console.log(song);
         axios.post(`http://localhost:8762/musicservice/songs/user/${userName}`,song)
             .then(song => {
                 console.log(song);
+                addVote(song.id);
                 getList();
             }).catch(err => console.log(err));
     };
@@ -162,6 +187,9 @@ const BookContextProvider = (props) => {
                 usersData,
                 userLoggedIn,
                 token,
+                vote,
+                modifyVote,
+                getVoteBySongId,
                 getApiList,
                 storageToken,
                 showUserData,
