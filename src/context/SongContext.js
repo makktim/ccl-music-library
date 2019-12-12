@@ -21,7 +21,8 @@ const BookContextProvider = (props) => {
             .then(vote =>{
                     setVote(vote.data);
             }).catch(err =>console.log(err));
-    }
+    };
+
 
     const getList = async () => {
         console.log(token);
@@ -41,7 +42,6 @@ const BookContextProvider = (props) => {
                 userLoggedIn(false);
             }).catch(err =>console.log(err))
     };
-
 
     const searchSong = (search) => {
         axios.get(`http://localhost:8762/musicservice/songs/search/${search}`, search)
@@ -70,8 +70,7 @@ const BookContextProvider = (props) => {
         console.log(song);
         axios.post(`http://localhost:8762/musicservice/songs/user/${userName}`,song)
             .then(song => {
-                console.log(song);
-                addVote(song.id);
+                console.log(song.data);
                 getList();
             }).catch(err => console.log(err));
     };
