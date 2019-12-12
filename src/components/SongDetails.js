@@ -2,10 +2,12 @@ import React, {useContext} from 'react';
 import {SongContext} from '../context/SongContext';
 import music from "../images/music_logo.png"
 import trash from "../images/delete.png";
+import Link from "react-router-dom/modules/Link";
+
 
 const SongDetails = ({songs}) => {
 
-    const {deleteSong} = useContext(SongContext);
+    const {deleteSong, getCommentsBySongId} = useContext(SongContext);
 
     return (
         <li>
@@ -20,6 +22,7 @@ const SongDetails = ({songs}) => {
                     <p className="music-time"> time: {songs.length}</p>
                 </div>
                 <img className="trash" onClick={() => deleteSong(songs.id)} src={trash} alt=""/>
+                <Link to = "/comment" className="comment" onClick =>{() => getCommentsBySongId(songs.id)}></Link>
             </div>
         </li>
 
