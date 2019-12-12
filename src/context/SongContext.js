@@ -55,15 +55,10 @@ const BookContextProvider = (props) => {
         addNewSong({title,album,performer,length});
     };
 
-    const createSongForDelete = (id, title,album,performer,length) => {
-        deleteSong({id, title,album,performer,length})
-    };
-
-    const deleteSong = (song) => {
-        console.log(song);
-        console.log(song.id);
-        setSongs(songs.filter(songs => songs.id !== song.id ));
-        axios.delete(`http://localhost:8762/musicservice/songs/user/${userName}`, {data: song})
+    const deleteSong = (id) => {
+        console.log(id);
+        setSongs(songs.filter(songs => songs.id !== id ));
+        axios.delete(`http://localhost:8762/musicservice/songs/user/${userName}/song/${id}`)
             .then(songs => {
                 console.log(songs);
             }).catch(err => console.log(err));
@@ -172,7 +167,6 @@ const BookContextProvider = (props) => {
                 showUserData,
                 showAllUser,
                 addSong,
-                createSongForDelete,
                 deleteSong,
                 searchSong,
                 getList,
