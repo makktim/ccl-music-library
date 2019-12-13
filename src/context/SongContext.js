@@ -19,7 +19,8 @@ const BookContextProvider = (props) => {
     const getVoteBySongId = async (songId) => {
         axios.get(`http://localhost:8762/voteservice/vote/${songId}`)
             .then(vote =>{
-                    setVote(vote.data);
+                    console.log(vote);
+                    setVote(vote.data.rating);
             }).catch(err =>console.log(err));
     };
 
@@ -51,17 +52,10 @@ const BookContextProvider = (props) => {
             }).catch(err =>console.log(err))
     };
 
-    const addVote = (songId) => {
-        axios.post(`http://localhost:8762/voteservice/vote/${songId}`, 0)
+    const modifyVote = (voteValue, songId) => {
+        axios.put(`http://localhost:8762/voteservice/vote/${songId}/vote_value/${voteValue}`)
             .then(vote => {
-                console.log(vote);
-            }).catch(err =>console.log(err))
-    };
-
-
-    const modifyVote = (vote, songId) => {
-        axios.put(`http://localhost:8762/voteservice/vote/${songId}`, vote)
-            .then(vote => {
+                getVoteBySongId(songId);
                 console.log(vote);
             }).catch(err => console.log(err));
     };
